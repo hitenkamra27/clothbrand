@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — STUDIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">STUDIO<span>Admin</span></div>
+    <nav class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="products">Products</button>
+      <button class="tab-btn" data-tab="categories">Categories</button>
+      <button class="tab-btn" data-tab="sections">Homepage Sections</button>
+      <button class="tab-btn" data-tab="orders">Orders</button>
+    </nav>
+    <button class="logout-btn" id="logoutBtn">Log out</button>
+  </header>
+
+  <main class="wrap">
+
+    <!-- PRODUCTS -->
+    <section class="panel active" id="panel-products">
+      <div class="panel-head">
+        <h2>Products</h2>
+        <button class="btn primary" id="newProductBtn">+ Add Product</button>
+      </div>
+      <div id="productMsg" class="msg"></div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Image</th><th>Name</th><th>Price</th><th>Gender</th><th>Category</th><th>Sections</th><th>New</th><th></th></tr>
+        </thead>
+        <tbody id="productRows"></tbody>
+      </table>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="panel" id="panel-categories">
+      <div class="panel-head">
+        <h2>Categories</h2>
+        <button class="btn primary" id="newCategoryBtn">+ Add Category</button>
+      </div>
+      <p class="hint">Categories power the "Shop" menu — e.g. Bottomwear → Joggers. Add a category, then add types inside it.</p>
+      <div id="categoryMsg" class="msg"></div>
+      <div id="categoryList" class="category-list"></div>
+    </section>
+
+    <!-- SECTIONS -->
+    <section class="panel" id="panel-sections">
+      <div class="panel-head">
+        <h2>Homepage Sections</h2>
+        <button class="btn primary" id="newSectionBtn">+ Add Section</button>
+      </div>
+      <p class="hint">These are the blocks that appear on your homepage (like "New Arrivals"). Assign products to a section from the Products tab.</p>
+      <div id="sectionMsg" class="msg"></div>
+      <table class="data-table">
+        <thead><tr><th>Title</th><th>Layout</th><th>Order</th><th></th></tr></thead>
+        <tbody id="sectionRows"></tbody>
+      </table>
+    </section>
+
+    <!-- ORDERS -->
+    <section class="panel" id="panel-orders">
+      <div class="panel-head">
+        <h2>Orders</h2>
+        <button class="btn" id="refreshOrdersBtn">Refresh</button>
+      </div>
+      <p class="hint">Upcoming orders need action — update the status as a package moves through pending → processing → shipped → in transit → delivered. Cancel from the status dropdown if needed.</p>
+      <div id="orderMsg" class="msg"></div>
+
+      <div class="order-subhead">
+        <h3>Upcoming Orders</h3>
+        <span class="order-count-pill" id="upcomingCount">0</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Placed</th><th>Status</th></tr>
+        </thead>
+        <tbody id="upcomingOrderRows"></tbody>
+      </table>
+
+      <div class="order-subhead">
+        <h3>Order History</h3>
+        <span class="order-count-pill" id="historyCount">0</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Placed</th><th>Status</th></tr>
+        </thead>
+        <tbody id="historyOrderRows"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- PRODUCT FORM MODAL -->
+  <div class="modal-veil" id="productModalVeil">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="productModalTitle">Add Product</h3>
+        <button class="modal-close" data-close="productModalVeil">✕</button>
+      </div>
+      <form id="productForm">
+        <input type="hidden" id="pf-id">
+        <div class="grid-2">
+          <div><label>Name</label><input id="pf-name" required></div>
+          <div><label>Price (₹)</label><input id="pf-price" type="number" min="0" step="1" required></div>
+        </div>
+        <div class="grid-2">
+          <div><label>Front image URL</label><input id="pf-imgFront" required></div>
+          <div><label>Back image URL (optional)</label><input id="pf-imgBack"></div>
+        </div>
+        <div class="grid-3">
+          <div>
+            <label>Gender</label>
+            <select id="pf-gender">
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="kids">Kids</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </div>
+          <div>
+            <label>Category</label>
+            <select id="pf-wear"></select>
+          </div>
+          <div>
+            <label>Type</label>
+            <select id="pf-type"></select>
+          </div>
+        </div>
+        <div><label>Sizes (shown as-is, e.g. "XS · S · M · L")</label><input id="pf-sizes" required></div>
+        <div class="grid-3">
+          <div><label>Color</label><input id="pf-color" placeholder="e.g. Black"></div>
+          <div><label>Brand</label><input id="pf-brand" placeholder="e.g. STUDIO"></div>
+          <div><label>Material</label><input id="pf-material" placeholder="e.g. Cotton"></div>
+        </div>
+        <div class="grid-2">
+          <div><label>Sale price (₹, optional — leave blank if not on sale)</label><input id="pf-salePrice" type="number" min="0" step="1"></div>
+          <div><label>Rating (0–5, optional)</label><input id="pf-rating" type="number" min="0" max="5" step="0.1"></div>
+        </div>
+        <div class="row-inline">
+          <label class="checkbox"><input type="checkbox" id="pf-isNew"> Mark as "New"</label>
+        </div>
+        <div>
+          <label>Show in homepage sections</label>
+          <div id="pf-sections" class="checkbox-list"></div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="productModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY FORM MODAL -->
+  <div class="modal-veil" id="categoryModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3>Add Category</h3>
+        <button class="modal-close" data-close="categoryModalVeil">✕</button>
+      </div>
+      <form id="categoryForm">
+        <div><label>Category name (e.g. "Outerwear")</label><input id="cf-label" required></div>
+        <div class="row-inline"><label class="checkbox"><input type="checkbox" id="cf-unisex"> This category is unisex (like Accessories)</label></div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="categoryModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TYPE FORM MODAL -->
+  <div class="modal-veil" id="typeModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3 id="typeModalTitle">Add Type</h3>
+        <button class="modal-close" data-close="typeModalVeil">✕</button>
+      </div>
+      <form id="typeForm">
+        <input type="hidden" id="tf-categoryKey">
+        <div><label>Type name (e.g. "Joggers")</label><input id="tf-label" required></div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="typeModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Type</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SECTION FORM MODAL -->
+  <div class="modal-veil" id="sectionModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3>Add Homepage Section</h3>
+        <button class="modal-close" data-close="sectionModalVeil">✕</button>
+      </div>
+      <form id="sectionForm">
+        <div><label>Section title (e.g. "Winter Edit")</label><input id="sf-title" required></div>
+        <div>
+          <label>Layout</label>
+          <select id="sf-layout">
+            <option value="grid">Grid</option>
+            <option value="carousel">Carousel (left/right scroll)</option>
+          </select>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="sectionModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Section</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "key": "shop",
+    "title": "The Collection",
+    "layout": "grid",
+    "order": 1
+  },
+  {
+    "key": "new",
+    "title": "New Arrivals",
+    "layout": "grid",
+    "order": 2
+  },
+  {
+    "key": "bestsellers",
+    "title": "Best Sellers",
+    "layout": "carousel",
+    "order": 3
+  }
+]

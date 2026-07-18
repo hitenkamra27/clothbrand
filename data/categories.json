@@ -1,0 +1,51 @@
+[
+  {
+    "key": "topwear",
+    "label": "Topwear",
+    "types": [
+      {
+        "key": "tshirts",
+        "label": "T-Shirts"
+      },
+      {
+        "key": "polos",
+        "label": "Polos"
+      },
+      {
+        "key": "shirts",
+        "label": "Shirts"
+      }
+    ]
+  },
+  {
+    "key": "bottomwear",
+    "label": "Bottomwear",
+    "types": [
+      {
+        "key": "jeans",
+        "label": "Jeans"
+      },
+      {
+        "key": "joggers",
+        "label": "Joggers"
+      }
+    ]
+  },
+  {
+    "key": "accessories",
+    "label": "Accessories",
+    "unisex": true,
+    "types": []
+  },
+  {
+    "key": "footwear",
+    "label": "Footwear",
+    "unisex": true,
+    "types": [
+      { "key": "sneakers", "label": "Sneakers" },
+      { "key": "boots", "label": "Boots" },
+      { "key": "sandals", "label": "Sandals" },
+      { "key": "formal-shoes", "label": "Formal Shoes" }
+    ]
+  }
+]

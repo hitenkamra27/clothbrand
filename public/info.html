@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announce">
+    <div class="announce-track">
+      <span>Free shipping on orders over ₹1,999</span>
+      <span>New season now live</span>
+      <span>Designed in-house, made to last</span>
+      <span>Free shipping on orders over ₹1,999</span>
+      <span>New season now live</span>
+      <span>Designed in-house, made to last</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="siteHeader">
+    <div class="nav-wrap">
+      <a href="/" class="brand-lockup" aria-label="STUDIO — Home">
+        <div class="logo-slot"><span>YOUR<br>LOGO</span></div>
+        <div class="brand-name">STUDIO<sup>°01</sup></div>
+      </a>
+      <nav class="primary-nav">
+        <ul>
+          <li><a href="/category.html">Shop</a></li>
+          <li><a href="/category.html?gender=men">Men</a></li>
+          <li><a href="/category.html?gender=women">Women</a></li>
+          <li><a href="/category.html?isNew=true">New Arrivals</a></li>
+          <li><a href="/category.html?section=bestsellers">Best Sellers</a></li>
+          <li><a href="/info.html?p=about">About</a></li>
+          <li><a href="/info.html?p=journal">Journal</a></li>
+          <li><a href="/info.html?p=contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons">
+        <button aria-label="Search" id="headerSearchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button aria-label="Account" id="accountOpenBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </button>
+        <button aria-label="Wishlist" id="wishlistOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1 4.6 2.6C11.2 6 12.6 5 14.6 5 18 5 19.6 8.4 18 11.7 15.5 16.3 12 21 12 21z"/></svg>
+          <span class="bag-count" id="wishlistCount">0</span>
+        </button>
+        <button aria-label="Bag" id="cartOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="bag-count" id="bagCount">0</span>
+        </button>
+        <div class="burger" id="burgerBtn" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-search-bar" id="headerSearchBar">
+    <form id="headerSearchForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="headerSearchInput" placeholder="Search products, brands, colors…" autocomplete="off">
+      <button type="button" id="headerSearchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+
+  <!-- PAGE CONTENT (rendered by /js/info.js based on ?p=) -->
+  <main id="infoContent">
+    <div class="info-loading">Loading…</div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-slot"><span>YOUR<br>LOGO</span></div>
+        <p>Considered clothing for daily wear. Designed with intent, built to last beyond the season.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/category.html?isNew=true">New Arrivals</a></li>
+          <li><a href="/category.html?section=bestsellers">Best Sellers</a></li>
+          <li><a href="/category.html?wear=footwear">Footwear</a></li>
+          <li><a href="/category.html?wear=accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/info.html?p=about">About Us</a></li>
+          <li><a href="/info.html?p=journal">Journal</a></li>
+          <li><a href="/info.html?p=sustainability">Sustainability</a></li>
+          <li><a href="/info.html?p=careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/info.html?p=shipping-returns">Shipping &amp; Returns</a></li>
+          <li><a href="/info.html?p=size-guide">Size Guide</a></li>
+          <li><a href="/info.html?p=faq">FAQ</a></li>
+          <li><a href="/info.html?p=contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 STUDIO. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- OVERLAY -->
+  <div class="veil" id="veil"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <aside class="side-panel" id="mobileNavPanel" aria-label="Menu">
+    <div class="panel-head">
+      <span class="panel-title">Menu</span>
+      <button class="panel-close" id="mobileNavCloseBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+      <a href="/category.html" class="mobile-link-row mobile-link">Shop</a>
+      <a href="/category.html?isNew=true" class="mobile-link-row mobile-link">New Arrivals</a>
+      <a href="/category.html?section=bestsellers" class="mobile-link-row mobile-link">Best Sellers</a>
+      <a href="/info.html?p=about" class="mobile-link-row mobile-link">About</a>
+      <a href="/info.html?p=journal" class="mobile-link-row mobile-link">Journal</a>
+      <a href="/info.html?p=sustainability" class="mobile-link-row mobile-link">Sustainability</a>
+      <a href="/info.html?p=careers" class="mobile-link-row mobile-link">Careers</a>
+      <a href="/info.html?p=shipping-returns" class="mobile-link-row mobile-link">Shipping &amp; Returns</a>
+      <a href="/info.html?p=size-guide" class="mobile-link-row mobile-link">Size Guide</a>
+      <a href="/info.html?p=faq" class="mobile-link-row mobile-link">FAQ</a>
+      <a href="/info.html?p=contact" class="mobile-link-row mobile-link">Contact</a>
+
+      <div class="mobile-nav-foot">
+        <button type="button" id="mobileAccountBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          Account
+        </button>
+        <button type="button" class="filled" id="mobileBagBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          Bag
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CART DRAWER -->
+  <aside class="side-panel" id="cartPanel" aria-label="Shopping bag">
+    <div class="panel-head">
+      <span class="panel-title">Your Bag</span>
+      <button class="panel-close" id="cartCloseBtn" aria-label="Close bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="panel-foot" id="cartFoot"></div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <aside class="side-panel" id="wishlistPanel" aria-label="Wishlist">
+    <div class="panel-head">
+      <span class="panel-title">Wishlist</span>
+      <button class="panel-close" id="wishlistCloseBtn" aria-label="Close wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="wishlist-body" id="wishlistBody"></div>
+  </aside>
+
+  <!-- ACCOUNT PANEL -->
+  <aside class="side-panel" id="accountPanel" aria-label="Account">
+    <div class="panel-head">
+      <span class="panel-title">Account</span>
+      <button class="panel-close" id="accountCloseBtn" aria-label="Close account panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="account-body" id="accountBody">
+
+      <!-- SIGNED-OUT STATE -->
+      <div id="accountLoggedOut">
+        <div class="account-tabs">
+          <button class="account-tab active" data-tab="signin">Sign In</button>
+          <button class="account-tab" data-tab="signup">Create Account</button>
+        </div>
+
+        <div class="account-toast" id="accountToast"></div>
+
+        <form class="account-form active" data-form="signin">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signinEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signinPassword" placeholder="••••••••" required>
+          </div>
+          <button class="account-submit" type="submit">Sign In</button>
+          <p class="account-alt">Forgot your password? <a href="#">Reset it</a></p>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignin"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignin" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <button type="button" class="account-guest" id="guestBtn">Continue as Guest</button>
+        </form>
+
+        <form class="account-form" data-form="signup">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="signupName" placeholder="Jordan Lee" required>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signupEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+          </div>
+          <button class="account-submit" type="submit">Create Account</button>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignup"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignup" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <p class="account-alt">By continuing you agree to our Terms &amp; Privacy Policy.</p>
+        </form>
+      </div>
+
+      <!-- SIGNED-IN STATE -->
+      <div id="accountLoggedIn" class="account-profile" hidden>
+        <div class="account-toast show" id="profileToast"></div>
+        <div class="profile-card">
+          <img id="profileAvatar" class="profile-avatar" src="" alt="">
+          <div class="profile-name" id="profileName"></div>
+          <div class="profile-email" id="profileEmail"></div>
+        </div>
+        <div class="profile-menu">
+          <a href="/category.html">Order History</a>
+          <a href="#" id="profileSavedItemsLink">Saved Items</a>
+          <a href="#">Account Settings</a>
+        </div>
+        <button type="button" class="account-guest" id="signOutBtn">Sign Out</button>
+      </div>
+
+    </div>
+  </aside>
+
+  <script src="/js/shop-common.js"></script>
+  <script src="/js/gokwik.js"></script>
+  <script src="/js/info.js"></script>
+  <script src="/js/account.js"></script>
+
+</body>
+</html>
