@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Hive & Ash</title>
+<link rel="icon" type="image/png" href="/img/logo-mark.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand">Hive & Ash<span>Admin</span></div>
+      </div>
+      <nav class="tabs" id="tabs">
+        <button class="tab-btn active" data-tab="overview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+          Overview
+        </button>
+        <button class="tab-btn" data-tab="products">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 7l-8-4-8 4v10l8 4 8-4V7z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+          Products
+        </button>
+        <button class="tab-btn" data-tab="categories">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+          Categories
+        </button>
+        <button class="tab-btn" data-tab="sections">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+          Homepage Sections
+        </button>
+        <button class="tab-btn" data-tab="orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2l1.5 4M18 2l-1.5 4M4 6h16l-1.5 12h-13L4 6z"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>
+          Orders
+        </button>
+        <button class="tab-btn" data-tab="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009.6 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 8.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.51.19 1 .54 1.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          Settings
+        </button>
+      </nav>
+      <button class="logout-btn" id="logoutBtn">Log out</button>
+    </aside>
+
+    <main class="wrap">
+
+    <!-- OVERVIEW -->
+    <section class="panel active" id="panel-overview">
+      <div class="panel-head">
+        <h2>Overview</h2>
+      </div>
+      <div class="stat-grid" id="statGrid"></div>
+      <div class="overview-cols">
+        <div class="overview-block">
+          <h3>Needs attention</h3>
+          <div id="overviewUpcoming" class="overview-list"></div>
+        </div>
+        <div class="overview-block">
+          <h3>Recently added products</h3>
+          <div id="overviewRecentProducts" class="overview-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="panel" id="panel-products">
+      <div class="panel-head">
+        <h2>Products</h2>
+        <button class="btn primary" id="newProductBtn">+ Add Product</button>
+      </div>
+      <div id="productMsg" class="msg"></div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th class="sortable" data-sort="name">Name <span class="sort-arrow"></span></th>
+            <th class="sortable" data-sort="price">Price <span class="sort-arrow"></span></th>
+            <th class="sortable" data-sort="gender">Gender <span class="sort-arrow"></span></th>
+            <th class="sortable" data-sort="category">Category <span class="sort-arrow"></span></th>
+            <th>Sections</th>
+            <th class="sortable" data-sort="isNew">New <span class="sort-arrow"></span></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="productRows"></tbody>
+      </table>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="panel" id="panel-categories">
+      <div class="panel-head">
+        <h2>Categories</h2>
+        <button class="btn primary" id="newCategoryBtn">+ Add Category</button>
+      </div>
+      <p class="hint">Categories power the "Shop" menu — e.g. Bottomwear → Joggers. Add a category, then add types inside it.</p>
+      <div id="categoryMsg" class="msg"></div>
+      <div id="categoryList" class="category-list"></div>
+    </section>
+
+    <!-- SECTIONS -->
+    <section class="panel" id="panel-sections">
+      <div class="panel-head">
+        <h2>Homepage Sections</h2>
+        <button class="btn primary" id="newSectionBtn">+ Add Section</button>
+      </div>
+      <p class="hint">These are the blocks that appear on your homepage (like "New Arrivals"). Assign products to a section from the Products tab.</p>
+      <div id="sectionMsg" class="msg"></div>
+      <table class="data-table">
+        <thead><tr><th>Title</th><th>Layout</th><th>Order</th><th></th></tr></thead>
+        <tbody id="sectionRows"></tbody>
+      </table>
+    </section>
+
+    <!-- ORDERS -->
+    <section class="panel" id="panel-orders">
+      <div class="panel-head">
+        <h2>Orders</h2>
+        <button class="btn" id="refreshOrdersBtn">Refresh</button>
+      </div>
+      <p class="hint">Upcoming orders need action — update the status as a package moves through pending → processing → shipped → in transit → delivered. Cancel from the status dropdown if needed.</p>
+      <div id="orderMsg" class="msg"></div>
+
+      <div class="order-subhead">
+        <h3>Upcoming Orders</h3>
+        <span class="order-count-pill" id="upcomingCount">0</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Placed</th><th>Status</th></tr>
+        </thead>
+        <tbody id="upcomingOrderRows"></tbody>
+      </table>
+
+      <div class="order-subhead">
+        <h3>Order History</h3>
+        <span class="order-count-pill" id="historyCount">0</span>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Placed</th><th>Status</th></tr>
+        </thead>
+        <tbody id="historyOrderRows"></tbody>
+      </table>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="panel" id="panel-settings">
+      <div class="panel-head">
+        <h2>Site Settings</h2>
+        <button class="btn primary" id="saveSettingsBtn">Save Changes</button>
+      </div>
+      <p class="hint">These control the live storefront directly — the announcement bar and footer update the moment you save.</p>
+      <div id="settingsMsg" class="msg"></div>
+
+      <div class="settings-form">
+        <div class="settings-card">
+          <h3>Store Identity</h3>
+          <div class="grid-2">
+            <div><label>Store name</label><input id="st-storeName" placeholder="Hive & Ash"></div>
+            <div>
+              <label>Logo <span class="label-note">(optional — leave blank to keep current logo files)</span></label>
+              <div class="image-field">
+                <input type="hidden" id="st-logoUrl">
+                <div class="image-field-row">
+                  <img id="st-logoUrlPreview" class="image-preview" hidden>
+                  <label class="btn small upload-btn">
+                    Upload Image
+                    <input type="file" id="st-logoUrlFile" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+                  </label>
+                  <span class="upload-status" id="st-logoUrlStatus"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><label>Footer tagline</label><input id="st-tagline" placeholder="Considered clothing for daily wear…"></div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Announcement Bar</h3>
+          <p class="hint">Up to 6 short messages that scroll across the top of the site. One per line.</p>
+          <textarea id="st-announcements" rows="4" placeholder="Free shipping on orders over ₹1,999&#10;New season now live&#10;Designed in-house, made to last"></textarea>
+        </div>
+
+        <div class="settings-card">
+          <h3>Contact</h3>
+          <div class="grid-2">
+            <div><label>Contact email</label><input id="st-contactEmail" type="email" placeholder="hello@yourdomain.com"></div>
+            <div><label>Contact phone</label><input id="st-contactPhone" placeholder="+91 …"></div>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Social Links</h3>
+          <p class="hint">Leave blank to hide that icon in the footer.</p>
+          <div class="grid-3">
+            <div><label>Instagram URL</label><input id="st-instagramUrl" placeholder="https://instagram.com/…"></div>
+            <div><label>TikTok URL</label><input id="st-tiktokUrl" placeholder="https://tiktok.com/@…"></div>
+            <div><label>Pinterest URL</label><input id="st-pinterestUrl" placeholder="https://pinterest.com/…"></div>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Shipping</h3>
+          <div><label>Free shipping threshold (₹)</label><input id="st-freeShippingThreshold" type="number" min="0" step="1"></div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Integrations status</h3>
+          <p class="hint">Read-only — configure these in your server's <code>.env</code> file, not here (they involve secret keys that shouldn't be typed into a browser).</p>
+          <div class="integration-status-list" id="integrationStatusList"></div>
+        </div>
+      </div>
+    </section>
+
+    </main>
+  </div>
+
+  <!-- PRODUCT FORM MODAL -->
+  <div class="modal-veil" id="productModalVeil">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="productModalTitle">Add Product</h3>
+        <button class="modal-close" data-close="productModalVeil">✕</button>
+      </div>
+      <form id="productForm">
+        <input type="hidden" id="pf-id">
+        <div class="grid-2">
+          <div><label>Name</label><input id="pf-name" required></div>
+          <div><label>Price (₹)</label><input id="pf-price" type="number" min="0" step="1" required></div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label>Front image</label>
+            <div class="image-field">
+              <input type="hidden" id="pf-imgFront">
+              <div class="image-field-row">
+                <img id="pf-imgFrontPreview" class="image-preview" hidden>
+                <label class="btn small upload-btn">
+                  Upload Image
+                  <input type="file" id="pf-imgFrontFile" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+                </label>
+                <span class="upload-status" id="pf-imgFrontStatus"></span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label>Back image (optional)</label>
+            <div class="image-field">
+              <input type="hidden" id="pf-imgBack">
+              <div class="image-field-row">
+                <img id="pf-imgBackPreview" class="image-preview" hidden>
+                <label class="btn small upload-btn">
+                  Upload Image
+                  <input type="file" id="pf-imgBackFile" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+                </label>
+                <span class="upload-status" id="pf-imgBackStatus"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <label>Additional images (optional)</label>
+          <div class="multi-upload-row">
+            <label class="btn small upload-btn">
+              ⇪ Upload Images
+              <input type="file" id="pf-multiUploadFile" accept="image/jpeg,image/png,image/webp,image/gif" multiple hidden>
+            </label>
+            <span class="upload-status" id="pf-multiUploadStatus"></span>
+          </div>
+          <div class="image-thumb-grid" id="pf-imagesList"></div>
+        </div>
+        <div class="grid-3">
+          <div>
+            <label>Gender</label>
+            <select id="pf-gender">
+              <option value="men">Men</option>
+              <option value="women">Women</option>
+              <option value="unisex">Unisex</option>
+            </select>
+          </div>
+          <div>
+            <label>Category</label>
+            <select id="pf-wear"></select>
+          </div>
+          <div>
+            <label>Type</label>
+            <select id="pf-type"></select>
+          </div>
+        </div>
+        <div><label>Sizes (shown as-is, e.g. "XS · S · M · L")</label><input id="pf-sizes" required></div>
+        <div class="grid-3">
+          <div><label>Color</label><input id="pf-color" placeholder="e.g. Black"></div>
+          <div><label>Brand</label><input id="pf-brand" placeholder="e.g. Hive & Ash"></div>
+          <div><label>Material</label><input id="pf-material" placeholder="e.g. Cotton"></div>
+        </div>
+        <div><label>Description (optional)</label><textarea id="pf-description" rows="3" placeholder="Fabric, fit, care instructions…"></textarea></div>
+        <div class="grid-3">
+          <div><label>SKU (optional)</label><input id="pf-sku" placeholder="e.g. HA-TS-BLK-M"></div>
+          <div><label>Stock quantity (optional — blank = unlimited)</label><input id="pf-stock" type="number" min="0" step="1"></div>
+          <div><label>Tags (optional, comma-separated)</label><input id="pf-tags" placeholder="e.g. summer, linen, sale"></div>
+        </div>
+        <div class="grid-2">
+          <div><label>Sale price (₹, optional — leave blank if not on sale)</label><input id="pf-salePrice" type="number" min="0" step="1"></div>
+          <div><label>Rating (0–5, optional)</label><input id="pf-rating" type="number" min="0" max="5" step="0.1"></div>
+        </div>
+        <div class="row-inline">
+          <label class="checkbox"><input type="checkbox" id="pf-isNew"> Mark as "New"</label>
+        </div>
+        <div>
+          <label>Show in homepage sections</label>
+          <div id="pf-sections" class="checkbox-list"></div>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="productModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY FORM MODAL -->
+  <div class="modal-veil" id="categoryModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3>Add Category</h3>
+        <button class="modal-close" data-close="categoryModalVeil">✕</button>
+      </div>
+      <form id="categoryForm">
+        <div><label>Category name (e.g. "Outerwear")</label><input id="cf-label" required></div>
+        <div class="row-inline"><label class="checkbox"><input type="checkbox" id="cf-unisex"> This category is unisex (like Accessories)</label></div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="categoryModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TYPE FORM MODAL -->
+  <div class="modal-veil" id="typeModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3 id="typeModalTitle">Add Type</h3>
+        <button class="modal-close" data-close="typeModalVeil">✕</button>
+      </div>
+      <form id="typeForm">
+        <input type="hidden" id="tf-categoryKey">
+        <div><label>Type name (e.g. "Joggers")</label><input id="tf-label" required></div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="typeModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Type</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SECTION FORM MODAL -->
+  <div class="modal-veil" id="sectionModalVeil">
+    <div class="modal small">
+      <div class="modal-head">
+        <h3>Add Homepage Section</h3>
+        <button class="modal-close" data-close="sectionModalVeil">✕</button>
+      </div>
+      <form id="sectionForm">
+        <div><label>Section title (e.g. "Winter Edit")</label><input id="sf-title" required></div>
+        <div>
+          <label>Layout</label>
+          <select id="sf-layout">
+            <option value="grid">Grid</option>
+            <option value="carousel">Carousel (left/right scroll)</option>
+          </select>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn" data-close="sectionModalVeil">Cancel</button>
+          <button type="submit" class="btn primary">Add Section</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hive & Ash — Contemporary Clothing</title>
+<link rel="icon" type="image/png" href="/img/logo-mark.png">
+<link rel="apple-touch-icon" href="/img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announce">
+    <div class="announce-track">
+      <span>Free shipping on orders over ₹1,999</span>
+      <span>New season now live</span>
+      <span>Designed in-house, made to last</span>
+      <span>Free shipping on orders over ₹1,999</span>
+      <span>New season now live</span>
+      <span>Designed in-house, made to last</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="siteHeader">
+    <div class="nav-wrap">
+      <a href="/" class="brand-lockup" aria-label="Hive & Ash — Home">
+        <div class="logo-slot"><img src="/img/logo-mark.png" alt="Hive & Ash mark"></div>
+        <div class="brand-name">Hive &amp; Ash</div>
+      </a>
+      <nav class="primary-nav">
+        <ul>
+          <li class="has-mega" id="megaTrigger">
+            <a href="#shop" id="megaTriggerLink">Shop
+              <svg class="mega-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="mega-menu" id="megaMenu">
+              <div class="mega-inner">
+                <div class="mega-gender" role="tablist">
+                  <button class="mega-gender-btn active" data-gender="men" type="button">Men</button>
+                  <button class="mega-gender-btn" data-gender="women" type="button">Women</button>
+                </div>
+                <div class="mega-columns" id="megaColumns">
+                  <!-- Category columns are rendered here by JS from /api/categories -->
+                  <div class="mega-col mega-col-feature" id="megaFeatureCol">
+                    <img src="https://picsum.photos/seed/megamenufeature/400/500" alt="Featured category look">
+                    <a href="#shop" id="megaViewAll">View All Products →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="/category.html?gender=men">Men</a></li>
+          <li><a href="/category.html?gender=women">Women</a></li>
+          <li class="nav-dyn-slot" data-nav-slot="categories"></li>
+          <li class="nav-dyn-slot" data-nav-slot="sections"></li>
+          <li><a href="/category.html?sale=true">Sale</a></li>
+          <li><a href="#story">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons">
+        <button aria-label="Search" id="headerSearchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button aria-label="Account" id="accountOpenBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </button>
+        <button aria-label="Wishlist" id="wishlistOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1 4.6 2.6C11.2 6 12.6 5 14.6 5 18 5 19.6 8.4 18 11.7 15.5 16.3 12 21 12 21z"/></svg>
+          <span class="bag-count" id="wishlistCount">0</span>
+        </button>
+        <button aria-label="Bag" id="cartOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="bag-count" id="bagCount">0</span>
+        </button>
+        <div class="burger" id="burgerBtn" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-search-bar" id="headerSearchBar">
+    <form id="headerSearchForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="headerSearchInput" placeholder="Search products, brands, colors…" autocomplete="off">
+      <button type="button" id="headerSearchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="https://picsum.photos/seed/studiohero01/1800/1400" alt="Hero campaign image — placeholder">
+    <div class="hero-colorgrade"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-corner tl"></div>
+    <div class="hero-corner tr"></div>
+    <div class="hero-corner bl"></div>
+    <div class="hero-corner br"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Fall / Winter — Collection 01</span>
+      <h1 class="hero-title">The Quiet<br>Standard</h1>
+      <p class="hero-sub">Considered essentials, cut for movement and built to outlast the season. No noise, just the garment.</p>
+      <a href="#shop" class="hero-cta">Shop the Collection →</a>
+    </div>
+    <div class="hero-index">01 / 04<br>Scroll</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>New Season</span><span>Limited Run</span><span>Made to Last</span><span>Free Shipping</span>
+      <span>New Season</span><span>Limited Run</span><span>Made to Last</span><span>Free Shipping</span>
+    </div>
+  </div>
+
+  <!-- SHOP GRID -->
+  <section class="section" id="shop">
+    <div class="section-head">
+      <h2 class="section-title">The Collection</h2>
+      <a href="/category.html" class="section-link" id="shopViewAllLink">View All Products →</a>
+    </div>
+    <div class="filter-bar" id="filterBar">
+      <span>Showing:</span>
+      <span class="filter-pill" id="filterPill"></span>
+      <a href="#" class="filter-clear" id="filterClear">Clear filter ✕</a>
+    </div>
+    <div class="product-grid" id="shopGrid">
+      <!-- Products rendered here by JS from /api/products (section: shop) -->
+    </div>
+  </section>
+
+  <!-- EDITORIAL -->
+  <section class="editorial">
+    <img src="https://picsum.photos/seed/editorialcampaign/1800/1200" alt="Editorial campaign image — placeholder">
+    <div class="editorial-overlay"></div>
+    <div class="editorial-content">
+      <span class="eyebrow">Behind the Collection</span>
+      <h2 class="editorial-title">Built for the In-Between</h2>
+      <p class="editorial-text">Shot on location with the people who wear the clothes daily. A closer look at the fabrics, fits, and reasoning behind Collection 01.</p>
+      <a href="#" class="editorial-cta">Explore the Story</a>
+    </div>
+  </section>
+
+  <!-- NEW ARRIVALS -->
+  <section class="section" id="new">
+    <div class="section-head">
+      <h2 class="section-title">New Arrivals</h2>
+      <a href="/category.html?isNew=true" class="section-link" id="newViewAllLink">View All Products →</a>
+    </div>
+    <div class="product-grid" id="newGrid">
+      <!-- Products rendered here by JS from /api/products (section: new) -->
+    </div>
+  </section>
+
+  <!-- BEST SELLERS CAROUSEL (more collection + left/right switching) -->
+  <section class="section" id="bestsellers">
+    <div class="carousel-head">
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="carousel-nav">
+        <a href="/category.html?section=bestsellers" class="section-link" id="bestViewAllLink" style="margin-right:16px;">View All →</a>
+        <button class="carousel-arrow" id="carouselPrev" aria-label="Previous items">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel-arrow" id="carouselNext" aria-label="Next items">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="carousel-viewport" id="carouselViewport">
+      <!-- Products rendered here by JS from /api/products (section: bestsellers) -->
+    </div>
+  </section>
+
+  <!-- Any homepage sections the admin adds beyond Shop/New/Bestsellers render here -->
+  <div id="extraSectionsMount"></div>
+
+  <!-- BRAND STORY -->
+  <section class="story" id="story">
+    <div class="story-media">
+      <img src="https://picsum.photos/seed/brandstory/900/1100" alt="Brand story image — placeholder">
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">Our Approach</span>
+      <h2 class="story-title">Fewer Pieces,<br>Made Properly</h2>
+      <p>We design in small batches, working directly with mills we trust and fits we've tested on real bodies, not mannequins. Every piece is built to be worn hard and repaired, not replaced.</p>
+      <p>No seasonal gimmicks — just a wardrobe that gets better with time.</p>
+      <div class="story-stats">
+        <div class="story-stat"><b>04</b><span>Collections / Year</span></div>
+        <div class="story-stat"><b>100%</b><span>Cut &amp; Sewn In-House</span></div>
+        <div class="story-stat"><b>12</b><span>Core Fabrics</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <span class="eyebrow">Stay in the Loop</span>
+    <h2 class="newsletter-title">Join the List</h2>
+    <p>Early access to drops, restocks, and the occasional discount. No spam, unsubscribe anytime.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Thanks — you\'re in ✓';">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe →</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-slot"><img src="/img/logo-wordmark.png" alt="Hive & Ash"></div>
+        <p>Considered clothing for daily wear. Designed with intent, built to last beyond the season.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li class="nav-dyn-slot" data-nav-slot="sections"></li>
+          <li class="nav-dyn-slot" data-nav-slot="categories"></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/info.html?p=about">About Us</a></li>
+          <li><a href="/info.html?p=journal">Journal</a></li>
+          <li><a href="/info.html?p=sustainability">Sustainability</a></li>
+          <li><a href="/info.html?p=careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/info.html?p=shipping-returns">Shipping &amp; Returns</a></li>
+          <li><a href="/info.html?p=size-guide">Size Guide</a></li>
+          <li><a href="/info.html?p=faq">FAQ</a></li>
+          <li><a href="/info.html?p=contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hive & Ash. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- OVERLAY -->
+  <div class="veil" id="veil"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <aside class="side-panel" id="mobileNavPanel" aria-label="Menu">
+    <div class="panel-head">
+      <span class="panel-title">Menu</span>
+      <button class="panel-close" id="mobileNavCloseBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+
+      <div class="mobile-accordion" id="mobileShopAccordion">
+        <button type="button" class="mobile-link-row mobile-link" id="mobileShopToggle">
+          Shop
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-panel">
+          <div class="mobile-gender" role="tablist">
+            <button class="mobile-gender-btn active" data-gender="men" type="button">Men</button>
+            <button class="mobile-gender-btn" data-gender="women" type="button">Women</button>
+          </div>
+
+          <div id="mobileCatGroups">
+            <!-- Category groups are rendered here by JS from /api/categories -->
+          </div>
+
+          <a href="/category.html" class="mobile-cat-link" id="mobileViewAll" style="font-weight:600;">View All Products →</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-dyn-sections" data-nav-slot="mobile-sections"></div>
+      <a href="#story" class="mobile-link-row mobile-link">About</a>
+      <a href="/info.html?p=journal" class="mobile-link-row mobile-link">Journal</a>
+
+      <div class="mobile-nav-foot">
+        <button type="button" id="mobileAccountBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          Account
+        </button>
+        <button type="button" class="filled" id="mobileBagBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          Bag
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- CART DRAWER -->
+  <aside class="side-panel" id="cartPanel" aria-label="Shopping bag">
+    <div class="panel-head">
+      <span class="panel-title">Your Bag</span>
+      <button class="panel-close" id="cartCloseBtn" aria-label="Close bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="panel-foot" id="cartFoot"></div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <aside class="side-panel" id="wishlistPanel" aria-label="Wishlist">
+    <div class="panel-head">
+      <span class="panel-title">Wishlist</span>
+      <button class="panel-close" id="wishlistCloseBtn" aria-label="Close wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="wishlist-body" id="wishlistBody"></div>
+  </aside>
+
+  <!-- CHECKOUT DRAWER -->
+  <aside class="side-panel" id="checkoutPanel" aria-label="Checkout">
+    <div class="panel-head">
+      <span class="panel-title">Checkout</span>
+      <button class="panel-close" id="checkoutCloseBtn" aria-label="Close checkout">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body" id="checkoutBody"></div>
+  </aside>
+
+  <!-- ACCOUNT PANEL -->
+  <aside class="side-panel" id="accountPanel" aria-label="Account">
+    <div class="panel-head">
+      <span class="panel-title">Account</span>
+      <button class="panel-close" id="accountCloseBtn" aria-label="Close account panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="account-body" id="accountBody">
+
+      <!-- SIGNED-OUT STATE -->
+      <div id="accountLoggedOut">
+        <div class="account-tabs">
+          <button class="account-tab active" data-tab="signin">Sign In</button>
+          <button class="account-tab" data-tab="signup">Create Account</button>
+        </div>
+
+        <div class="account-toast" id="accountToast"></div>
+
+        <form class="account-form active" data-form="signin">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signinEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signinPassword" placeholder="••••••••" required>
+          </div>
+          <button class="account-submit" type="submit">Sign In</button>
+          <p class="account-alt">Forgot your password? <a href="#">Reset it</a></p>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignin"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignin" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <button type="button" class="account-guest" id="guestBtn">Continue as Guest</button>
+        </form>
+
+        <form class="account-form" data-form="signup">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="signupName" placeholder="Jordan Lee" required>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signupEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+          </div>
+          <button class="account-submit" type="submit">Create Account</button>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignup"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignup" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <p class="account-alt">By continuing you agree to our Terms &amp; Privacy Policy.</p>
+        </form>
+      </div>
+
+      <!-- SIGNED-IN STATE (populated after a successful Google sign-in) -->
+      <div id="accountLoggedIn" class="account-profile" hidden>
+        <div class="account-toast show" id="profileToast"></div>
+        <div class="profile-card">
+          <img id="profileAvatar" class="profile-avatar" src="" alt="">
+          <div class="profile-name" id="profileName"></div>
+          <div class="profile-email" id="profileEmail"></div>
+        </div>
+        <div class="profile-menu">
+          <a href="#" id="profileOrderHistoryLink">Order History</a>
+          <a href="#" id="profileSavedItemsLink">Saved Items</a>
+          <a href="#" id="profileAccountSettingsLink">Account Settings</a>
+        </div>
+        <button type="button" class="account-guest" id="signOutBtn">Sign Out</button>
+      </div>
+
+
+    </div>
+  </aside>
+
+  <!-- ORDER HISTORY PANEL -->
+  <aside class="side-panel" id="orderHistoryPanel" aria-label="Order History">
+    <div class="panel-head">
+      <span class="panel-title">Order History</span>
+      <button class="panel-close" id="orderHistoryCloseBtn" aria-label="Close order history">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="order-history-body" id="orderHistoryList"></div>
+  </aside>
+
+  <!-- ACCOUNT SETTINGS PANEL -->
+  <aside class="side-panel" id="accountSettingsPanel" aria-label="Account Settings">
+    <div class="panel-head">
+      <span class="panel-title">Account Settings</span>
+      <button class="panel-close" id="accountSettingsCloseBtn" aria-label="Close account settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="account-settings-body" id="accountSettingsBody">
+      <div class="account-toast" id="settingsToast"></div>
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="settingsName" placeholder="Your name">
+      </div>
+      <button type="button" class="account-submit settings-save-btn" id="settingsSaveNameBtn">Save Name</button>
+
+      <div class="field settings-field-spaced">
+        <label>Email</label>
+        <input type="email" id="settingsEmail" disabled>
+      </div>
+
+      <div class="field settings-field-spaced">
+        <label>Mobile Number <span class="phone-verified-badge" id="phoneVerifiedBadge" hidden>&#10003; Verified</span></label>
+        <div class="otp-row">
+          <input type="tel" id="settingsPhone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+          <button type="button" class="btn-otp" id="sendOtpBtn">Send OTP</button>
+        </div>
+      </div>
+      <div class="field" id="otpField" hidden>
+        <label>Enter OTP</label>
+        <div class="otp-row">
+          <input type="text" id="settingsOtp" placeholder="6-digit code" maxlength="6" inputmode="numeric">
+          <button type="button" class="btn-otp primary" id="verifyOtpBtn">Verify</button>
+        </div>
+        <p class="otp-hint" id="otpHint"></p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="/js/shop-common.js"></script>
+  <script src="/js/shiprocket.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/account.js"></script>
+
+</body>
+</html>

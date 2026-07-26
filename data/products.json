@@ -1,0 +1,381 @@
+[
+  {
+    "id": "p1",
+    "name": "Heavyweight Overshirt",
+    "price": 3499,
+    "imgFront": "https://picsum.photos/seed/prod1a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod1b/600/800",
+    "gender": "men",
+    "wear": "topwear",
+    "type": "shirts",
+    "sizes": "XS · S · M · L · XL",
+    "isNew": true,
+    "sections": [
+      "shop"
+    ],
+    "color": "White",
+    "brand": "Hive & Ash",
+    "material": "Cotton Twill",
+    "rating": 4.6,
+    "reviewCount": 129,
+    "salePrice": 2740
+  },
+  {
+    "id": "p2",
+    "name": "Boxy Fit Tee, Ecru",
+    "price": 1299,
+    "imgFront": "https://picsum.photos/seed/prod2a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod2b/600/800",
+    "gender": "women",
+    "wear": "topwear",
+    "type": "tshirts",
+    "sizes": "XS · S · M · L · XL",
+    "isNew": true,
+    "sections": [
+      "shop"
+    ],
+    "color": "White",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Cotton",
+    "rating": 4.2,
+    "reviewCount": 19,
+    "salePrice": 850
+  },
+  {
+    "id": "p3",
+    "name": "Tapered Work Trouser",
+    "price": 2999,
+    "imgFront": "https://picsum.photos/seed/prod3a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod3b/600/800",
+    "gender": "men",
+    "wear": "bottomwear",
+    "type": "jeans",
+    "sizes": "28 · 30 · 32 · 34 · 36",
+    "isNew": false,
+    "sections": [
+      "shop"
+    ],
+    "color": "Black",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Denim",
+    "rating": 3.9,
+    "reviewCount": 218,
+    "salePrice": 2240
+  },
+  {
+    "id": "p4",
+    "name": "Structured Twill Cap",
+    "price": 899,
+    "imgFront": "https://picsum.photos/seed/prod4a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod4b/600/800",
+    "gender": "unisex",
+    "wear": "accessories",
+    "type": "accessories",
+    "sizes": "One Size",
+    "isNew": false,
+    "sections": [
+      "shop"
+    ],
+    "color": "Black",
+    "brand": "Hive & Ash",
+    "material": "Mixed",
+    "rating": 4.6,
+    "reviewCount": 178,
+    "salePrice": 590
+  },
+  {
+    "id": "p5",
+    "name": "Shell Field Jacket",
+    "price": 4999,
+    "imgFront": "https://picsum.photos/seed/prod5a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod5b/600/800",
+    "gender": "men",
+    "wear": "topwear",
+    "type": "shirts",
+    "sizes": "S · M · L · XL",
+    "isNew": true,
+    "sections": [
+      "new"
+    ],
+    "color": "Grey",
+    "brand": "Hive & Ash",
+    "material": "Cotton Twill",
+    "rating": 3.7,
+    "reviewCount": 53,
+    "salePrice": null
+  },
+  {
+    "id": "p6",
+    "name": "Tech Short, Army",
+    "price": 1599,
+    "imgFront": "https://picsum.photos/seed/prod6a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod6b/600/800",
+    "gender": "men",
+    "wear": "bottomwear",
+    "type": "joggers",
+    "sizes": "28 · 30 · 32 · 34",
+    "isNew": true,
+    "sections": [
+      "new"
+    ],
+    "color": "Grey",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Cotton Fleece",
+    "rating": 4,
+    "reviewCount": 26,
+    "salePrice": null
+  },
+  {
+    "id": "p7",
+    "name": "Ribbed Half-Zip Knit",
+    "price": 2199,
+    "imgFront": "https://picsum.photos/seed/prod7a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod7b/600/800",
+    "gender": "women",
+    "wear": "topwear",
+    "type": "polos",
+    "sizes": "XS · S · M · L",
+    "isNew": false,
+    "sections": [
+      "new"
+    ],
+    "color": "White",
+    "brand": "Hive & Ash Essentials",
+    "material": "Cotton",
+    "rating": 3.7,
+    "reviewCount": 154,
+    "salePrice": null
+  },
+  {
+    "id": "p8",
+    "name": "Canvas Utility Tote",
+    "price": 1399,
+    "imgFront": "https://picsum.photos/seed/prod8a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod8b/600/800",
+    "gender": "unisex",
+    "wear": "accessories",
+    "type": "accessories",
+    "sizes": "One Size",
+    "isNew": false,
+    "sections": [
+      "new"
+    ],
+    "color": "Grey",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Mixed",
+    "rating": 3.9,
+    "reviewCount": 39,
+    "salePrice": 920
+  },
+  {
+    "id": "p9",
+    "name": "Washed Denim Jacket",
+    "price": 3799,
+    "imgFront": "https://picsum.photos/seed/prod9a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod9b/600/800",
+    "gender": "women",
+    "wear": "topwear",
+    "type": "shirts",
+    "sizes": "XS · S · M · L · XL",
+    "isNew": true,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Navy",
+    "brand": "Hive & Ash",
+    "material": "Cotton Twill",
+    "rating": 4.8,
+    "reviewCount": 55,
+    "salePrice": null
+  },
+  {
+    "id": "p10",
+    "name": "Merino Crewneck Sweater",
+    "price": 2899,
+    "imgFront": "https://picsum.photos/seed/prod10a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod10b/600/800",
+    "gender": "women",
+    "wear": "topwear",
+    "type": "polos",
+    "sizes": "XS · S · M · L",
+    "isNew": false,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Army",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Cotton",
+    "rating": 4.8,
+    "reviewCount": 87,
+    "salePrice": null
+  },
+  {
+    "id": "p11",
+    "name": "Relaxed Cargo Pant",
+    "price": 2699,
+    "imgFront": "https://picsum.photos/seed/prod11a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod11b/600/800",
+    "gender": "men",
+    "wear": "bottomwear",
+    "type": "joggers",
+    "sizes": "28 · 30 · 32 · 34 · 36",
+    "isNew": true,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Olive",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Cotton Fleece",
+    "rating": 4,
+    "reviewCount": 40,
+    "salePrice": null
+  },
+  {
+    "id": "p12",
+    "name": "Waffle Knit Henley",
+    "price": 1799,
+    "imgFront": "https://picsum.photos/seed/prod12a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod12b/600/800",
+    "gender": "men",
+    "wear": "topwear",
+    "type": "tshirts",
+    "sizes": "XS · S · M · L · XL",
+    "isNew": false,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Ecru",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Cotton",
+    "rating": 4.6,
+    "reviewCount": 87,
+    "salePrice": null
+  },
+  {
+    "id": "p13",
+    "name": "Leather Crossbody Bag",
+    "price": 3299,
+    "imgFront": "https://picsum.photos/seed/prod13a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod13b/600/800",
+    "gender": "women",
+    "wear": "accessories",
+    "type": "accessories",
+    "sizes": "One Size",
+    "isNew": false,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Navy",
+    "brand": "Hive & Ash Denim Co.",
+    "material": "Mixed",
+    "rating": 4.6,
+    "reviewCount": 116,
+    "salePrice": null
+  },
+  {
+    "id": "p14",
+    "name": "Pleated Wide Trouser",
+    "price": 2599,
+    "imgFront": "https://picsum.photos/seed/prod14a/600/800",
+    "imgBack": "https://picsum.photos/seed/prod14b/600/800",
+    "gender": "women",
+    "wear": "bottomwear",
+    "type": "jeans",
+    "sizes": "XS · S · M · L",
+    "isNew": false,
+    "sections": [
+      "bestsellers"
+    ],
+    "color": "Black",
+    "brand": "Hive & Ash",
+    "material": "Denim",
+    "rating": 4.8,
+    "reviewCount": 165,
+    "salePrice": null
+  },
+  {
+    "id": "p18",
+    "name": "Retro Court Sneaker",
+    "price": 3999,
+    "salePrice": 2999,
+    "imgFront": "https://picsum.photos/seed/shoe1a/600/800",
+    "imgBack": "https://picsum.photos/seed/shoe1b/600/800",
+    "gender": "unisex",
+    "wear": "footwear",
+    "type": "sneakers",
+    "sizes": "6 · 7 · 8 · 9 · 10 · 11",
+    "isNew": true,
+    "sections": [
+      "shop",
+      "bestsellers"
+    ],
+    "color": "White",
+    "brand": "Hive & Ash",
+    "material": "Canvas & Rubber",
+    "rating": 4.6,
+    "reviewCount": 184
+  },
+  {
+    "id": "p19",
+    "name": "Leather Chelsea Boot",
+    "price": 5999,
+    "salePrice": null,
+    "imgFront": "https://picsum.photos/seed/shoe2a/600/800",
+    "imgBack": "https://picsum.photos/seed/shoe2b/600/800",
+    "gender": "men",
+    "wear": "footwear",
+    "type": "boots",
+    "sizes": "7 · 8 · 9 · 10 · 11",
+    "isNew": false,
+    "sections": [
+      "shop"
+    ],
+    "color": "Tan",
+    "brand": "Hive & Ash Essentials",
+    "material": "Leather",
+    "rating": 4.8,
+    "reviewCount": 76
+  },
+  {
+    "id": "p20",
+    "name": "Woven Slide Sandal",
+    "price": 1499,
+    "salePrice": 1099,
+    "imgFront": "https://picsum.photos/seed/shoe3a/600/800",
+    "imgBack": "https://picsum.photos/seed/shoe3b/600/800",
+    "gender": "women",
+    "wear": "footwear",
+    "type": "sandals",
+    "sizes": "5 · 6 · 7 · 8 · 9",
+    "isNew": true,
+    "sections": [
+      "new"
+    ],
+    "color": "Tan",
+    "brand": "Hive & Ash",
+    "material": "Leather",
+    "rating": 4.3,
+    "reviewCount": 55
+  },
+  {
+    "id": "p21",
+    "name": "Minimal Derby Shoe",
+    "price": 4499,
+    "salePrice": null,
+    "imgFront": "https://picsum.photos/seed/shoe4a/600/800",
+    "imgBack": "https://picsum.photos/seed/shoe4b/600/800",
+    "gender": "men",
+    "wear": "footwear",
+    "type": "formal-shoes",
+    "sizes": "7 · 8 · 9 · 10 · 11",
+    "isNew": false,
+    "sections": [
+      "shop"
+    ],
+    "color": "Black",
+    "brand": "Hive & Ash Essentials",
+    "material": "Leather",
+    "rating": 4.4,
+    "reviewCount": 29
+  }
+]

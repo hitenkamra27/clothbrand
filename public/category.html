@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Shop — Hive & Ash</title>
+<link rel="icon" type="image/png" href="/img/logo-mark.png">
+<link rel="apple-touch-icon" href="/img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <header id="siteHeader">
+    <div class="nav-wrap">
+      <a href="/" class="brand-lockup" aria-label="Hive & Ash — Home">
+        <div class="logo-slot"><img src="/img/logo-mark.png" alt="Hive & Ash mark"></div>
+        <div class="brand-name">Hive &amp; Ash</div>
+      </a>
+      <nav class="primary-nav">
+        <ul>
+          <li class="has-mega" id="megaTrigger">
+            <a href="#shop" id="megaTriggerLink">Shop
+              <svg class="mega-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="mega-menu" id="megaMenu">
+              <div class="mega-inner">
+                <div class="mega-gender" role="tablist">
+                  <button class="mega-gender-btn active" data-gender="men" type="button">Men</button>
+                  <button class="mega-gender-btn" data-gender="women" type="button">Women</button>
+                </div>
+                <div class="mega-columns" id="megaColumns">
+                  <!-- Category columns are rendered here by JS from /api/categories -->
+                  <div class="mega-col mega-col-feature" id="megaFeatureCol">
+                    <img src="https://picsum.photos/seed/megamenufeature/400/500" alt="Featured category look">
+                    <a href="#shop" id="megaViewAll">View All Products →</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="/category.html?gender=men">Men</a></li>
+          <li><a href="/category.html?gender=women">Women</a></li>
+          <li class="nav-dyn-slot" data-nav-slot="categories"></li>
+          <li class="nav-dyn-slot" data-nav-slot="sections"></li>
+          <li><a href="/category.html?sale=true">Sale</a></li>
+          <li><a href="/info.html?p=about">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-icons">
+        <button aria-label="Search" id="headerSearchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button aria-label="Account" id="accountOpenBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </button>
+        <button aria-label="Wishlist" id="wishlistOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1 4.6 2.6C11.2 6 12.6 5 14.6 5 18 5 19.6 8.4 18 11.7 15.5 16.3 12 21 12 21z"/></svg>
+          <span class="bag-count" id="wishlistCount">0</span>
+        </button>
+        <button aria-label="Bag" id="cartOpenBtn" class="bag-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          <span class="bag-count" id="bagCount">0</span>
+        </button>
+        <div class="burger" id="burgerBtn" role="button" tabindex="0" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-search-bar" id="headerSearchBar">
+    <form id="headerSearchForm">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="headerSearchInput" placeholder="Search products, brands, colors…" autocomplete="off">
+      <button type="button" id="headerSearchClose" aria-label="Close search">✕</button>
+    </form>
+  </div>
+  <!-- CATEGORY HERO -->
+  <section class="cat-hero" id="catHero">
+    <img id="catHeroImg" src="https://picsum.photos/seed/catheroDefault/1800/900" alt="">
+    <div class="cat-hero-content">
+      <span class="cat-hero-eyebrow" id="catHeroEyebrow">Hive & Ash</span>
+      <h1 class="cat-hero-title" id="catHeroTitle">Shop All</h1>
+      <p class="cat-hero-desc" id="catHeroDesc">Browse the full collection.</p>
+    </div>
+  </section>
+
+  <div class="cat-wrap">
+    <div class="cat-layout">
+
+      <!-- SIDEBAR FILTERS -->
+      <aside class="cat-sidebar" id="catSidebar">
+        <button class="cat-clear-filters" id="catClearFilters" style="margin-bottom:20px;">Clear all filters ✕</button>
+
+        <div class="cat-filter-group">
+          <h5>Gender</h5>
+          <div class="cat-filter-options" id="filterGender"></div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Category</h5>
+          <div class="cat-filter-options" id="filterType"></div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Price</h5>
+          <div class="cat-price-inputs">
+            <input type="number" id="filterPriceMin" placeholder="Min">
+            <span>–</span>
+            <input type="number" id="filterPriceMax" placeholder="Max">
+          </div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Color</h5>
+          <div class="cat-filter-options" id="filterColor"></div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Size</h5>
+          <div class="cat-filter-options" id="filterSize"></div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Brand</h5>
+          <div class="cat-filter-options" id="filterBrand"></div>
+        </div>
+
+        <div class="cat-filter-group">
+          <h5>Material</h5>
+          <div class="cat-filter-options" id="filterMaterial"></div>
+        </div>
+
+        <div class="cat-filter-group" style="border-bottom:none;">
+          <h5>Rating</h5>
+          <div class="cat-filter-options" id="filterRating"></div>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div>
+        <div class="cat-toolbar">
+          <span class="cat-result-count" id="catResultCount">Loading…</span>
+          <div class="cat-toolbar-right">
+            <button class="cat-mobile-filter-btn" id="catMobileFilterBtn">Filters</button>
+            <select class="cat-sort-select" id="catSortSelect">
+              <option value="">Sort: Featured</option>
+              <option value="newest">Newest</option>
+              <option value="popularity">Popularity</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Ratings</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cat-chips" id="catChips"></div>
+
+        <div class="cat-grid" id="catGrid"></div>
+
+        <div class="cat-infinite-sentinel" id="catInfiniteSentinel">
+          <span class="cat-infinite-spinner" id="catInfiniteSpinner" hidden></span>
+        </div>
+        <div class="cat-infinite-end" id="catInfiniteEnd" hidden>You've reached the end.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="qv-modal-veil" id="qvModalVeil">
+    <div class="qv-modal">
+      <button class="qv-modal-close" id="qvModalClose" aria-label="Close quick view">✕</button>
+      <div class="qv-media">
+        <img id="qvImg" src="" alt="">
+        <div class="qv-thumbs" id="qvThumbs"></div>
+      </div>
+      <div class="qv-info">
+        <h3 id="qvName"></h3>
+        <div class="qv-price" id="qvPrice"></div>
+        <div class="qv-meta" id="qvMeta"></div>
+        <div class="qv-actions">
+          <button class="qv-add-bag" id="qvAddBag">+ Add to Bag</button>
+          <button class="qv-wishlist" id="qvWishlist" aria-label="Save to wishlist">
+            <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1 4.6 2.6C11.2 6 12.6 5 14.6 5 18 5 19.6 8.4 18 11.7 15.5 16.3 12 21 12 21z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARE BAR -->
+  <div class="compare-bar" id="compareBar">
+    <div class="compare-bar-items" id="compareBarItems"></div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <button class="compare-bar-clear" id="compareBarClear">Clear</button>
+      <button class="compare-bar-open" id="compareBarOpen">Compare →</button>
+    </div>
+  </div>
+
+  <!-- COMPARE MODAL -->
+  <div class="compare-modal-veil" id="compareModalVeil">
+    <div class="compare-modal">
+      <button class="qv-modal-close" id="compareModalClose" aria-label="Close compare">✕</button>
+      <h3 style="font-family:var(--display);font-size:28px;">Compare</h3>
+      <div style="overflow-x:auto;">
+        <table class="compare-table" id="compareTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-slot"><img src="/img/logo-wordmark.png" alt="Hive & Ash"></div>
+        <p>Considered clothing for daily wear. Designed with intent, built to last beyond the season.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li class="nav-dyn-slot" data-nav-slot="sections"></li>
+          <li class="nav-dyn-slot" data-nav-slot="categories"></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/info.html?p=about">About Us</a></li>
+          <li><a href="/info.html?p=journal">Journal</a></li>
+          <li><a href="/info.html?p=sustainability">Sustainability</a></li>
+          <li><a href="/info.html?p=careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/info.html?p=shipping-returns">Shipping &amp; Returns</a></li>
+          <li><a href="/info.html?p=size-guide">Size Guide</a></li>
+          <li><a href="/info.html?p=faq">FAQ</a></li>
+          <li><a href="/info.html?p=contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hive &amp; Ash. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="veil" id="veil"></div>
+
+  <!-- MOBILE NAV DRAWER -->
+  <aside class="side-panel" id="mobileNavPanel" aria-label="Menu">
+    <div class="panel-head">
+      <span class="panel-title">Menu</span>
+      <button class="panel-close" id="mobileNavCloseBtn" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-body">
+
+      <div class="mobile-accordion" id="mobileShopAccordion">
+        <button type="button" class="mobile-link-row mobile-link" id="mobileShopToggle">
+          Shop
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="mobile-accordion-panel">
+          <div class="mobile-gender" role="tablist">
+            <button class="mobile-gender-btn active" data-gender="men" type="button">Men</button>
+            <button class="mobile-gender-btn" data-gender="women" type="button">Women</button>
+          </div>
+
+          <div id="mobileCatGroups">
+            <!-- Category groups are rendered here by JS from /api/categories -->
+          </div>
+
+          <a href="#shop" class="mobile-cat-link" id="mobileViewAll" style="font-weight:600;">View All Products →</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-dyn-sections" data-nav-slot="mobile-sections"></div>
+      <a href="/info.html?p=about" class="mobile-link-row mobile-link">About</a>
+      <a href="/info.html?p=journal" class="mobile-link-row mobile-link">Journal</a>
+
+      <div class="mobile-nav-foot">
+        <button type="button" id="mobileAccountBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+          Account
+        </button>
+        <button type="button" class="filled" id="mobileBagBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+          Bag
+        </button>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- CART DRAWER -->
+  <aside class="side-panel" id="cartPanel" aria-label="Shopping bag">
+    <div class="panel-head">
+      <span class="panel-title">Your Bag</span>
+      <button class="panel-close" id="cartCloseBtn" aria-label="Close bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="panel-foot" id="cartFoot"></div>
+  </aside>
+
+  <!-- WISHLIST DRAWER -->
+  <aside class="side-panel" id="wishlistPanel" aria-label="Wishlist">
+    <div class="panel-head">
+      <span class="panel-title">Wishlist</span>
+      <button class="panel-close" id="wishlistCloseBtn" aria-label="Close wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="wishlist-body" id="wishlistBody"></div>
+  </aside>
+
+  <!-- CHECKOUT DRAWER -->
+  <aside class="side-panel" id="checkoutPanel" aria-label="Checkout">
+    <div class="panel-head">
+      <span class="panel-title">Checkout</span>
+      <button class="panel-close" id="checkoutCloseBtn" aria-label="Close checkout">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="checkout-body" id="checkoutBody"></div>
+  </aside>
+
+  <!-- ACCOUNT PANEL -->
+  <aside class="side-panel" id="accountPanel" aria-label="Account">
+    <div class="panel-head">
+      <span class="panel-title">Account</span>
+      <button class="panel-close" id="accountCloseBtn" aria-label="Close account panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="account-body" id="accountBody">
+
+      <!-- SIGNED-OUT STATE -->
+      <div id="accountLoggedOut">
+        <div class="account-tabs">
+          <button class="account-tab active" data-tab="signin">Sign In</button>
+          <button class="account-tab" data-tab="signup">Create Account</button>
+        </div>
+
+        <div class="account-toast" id="accountToast"></div>
+
+        <form class="account-form active" data-form="signin">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signinEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signinPassword" placeholder="••••••••" required>
+          </div>
+          <button class="account-submit" type="submit">Sign In</button>
+          <p class="account-alt">Forgot your password? <a href="#">Reset it</a></p>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignin"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignin" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <button type="button" class="account-guest" id="guestBtn">Continue as Guest</button>
+        </form>
+
+        <form class="account-form" data-form="signup">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="signupName" placeholder="Jordan Lee" required>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="signupEmail" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" id="signupPassword" placeholder="Minimum 8 characters" required>
+          </div>
+          <button class="account-submit" type="submit">Create Account</button>
+          <div class="account-divider">or</div>
+          <div class="google-btn-slot" id="googleBtnSignup"></div>
+          <div class="google-btn-fallback" id="googleFallbackSignup" hidden>
+            Google Sign-In isn't configured yet — see the code comment near <code>GOOGLE_CLIENT_ID</code>.
+          </div>
+          <p class="account-alt">By continuing you agree to our Terms &amp; Privacy Policy.</p>
+        </form>
+      </div>
+
+      <!-- SIGNED-IN STATE (populated after a successful Google sign-in) -->
+      <div id="accountLoggedIn" class="account-profile" hidden>
+        <div class="account-toast show" id="profileToast"></div>
+        <div class="profile-card">
+          <img id="profileAvatar" class="profile-avatar" src="" alt="">
+          <div class="profile-name" id="profileName"></div>
+          <div class="profile-email" id="profileEmail"></div>
+        </div>
+        <div class="profile-menu">
+          <a href="#" id="profileOrderHistoryLink">Order History</a>
+          <a href="#" id="profileSavedItemsLink">Saved Items</a>
+          <a href="#" id="profileAccountSettingsLink">Account Settings</a>
+        </div>
+        <button type="button" class="account-guest" id="signOutBtn">Sign Out</button>
+      </div>
+
+
+    </div>
+  </aside>
+
+  <!-- ORDER HISTORY PANEL -->
+  <aside class="side-panel" id="orderHistoryPanel" aria-label="Order History">
+    <div class="panel-head">
+      <span class="panel-title">Order History</span>
+      <button class="panel-close" id="orderHistoryCloseBtn" aria-label="Close order history">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="order-history-body" id="orderHistoryList"></div>
+  </aside>
+
+  <!-- ACCOUNT SETTINGS PANEL -->
+  <aside class="side-panel" id="accountSettingsPanel" aria-label="Account Settings">
+    <div class="panel-head">
+      <span class="panel-title">Account Settings</span>
+      <button class="panel-close" id="accountSettingsCloseBtn" aria-label="Close account settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+      </button>
+    </div>
+    <div class="account-settings-body" id="accountSettingsBody">
+      <div class="account-toast" id="settingsToast"></div>
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="settingsName" placeholder="Your name">
+      </div>
+      <button type="button" class="account-submit settings-save-btn" id="settingsSaveNameBtn">Save Name</button>
+
+      <div class="field settings-field-spaced">
+        <label>Email</label>
+        <input type="email" id="settingsEmail" disabled>
+      </div>
+
+      <div class="field settings-field-spaced">
+        <label>Mobile Number <span class="phone-verified-badge" id="phoneVerifiedBadge" hidden>&#10003; Verified</span></label>
+        <div class="otp-row">
+          <input type="tel" id="settingsPhone" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+          <button type="button" class="btn-otp" id="sendOtpBtn">Send OTP</button>
+        </div>
+      </div>
+      <div class="field" id="otpField" hidden>
+        <label>Enter OTP</label>
+        <div class="otp-row">
+          <input type="text" id="settingsOtp" placeholder="6-digit code" maxlength="6" inputmode="numeric">
+          <button type="button" class="btn-otp primary" id="verifyOtpBtn">Verify</button>
+        </div>
+        <p class="otp-hint" id="otpHint"></p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="/js/shop-common.js"></script>
+  <script src="/js/shiprocket.js"></script>
+  <script src="/js/category.js"></script>
+  <script src="/js/account.js"></script>
+</body>
+</html>
